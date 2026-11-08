@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bikini Bottom Gazette: World of SpongeBob SquarePants</title>
+    <style>
+        /* 1. Global Reset & Defensive Layout Controls */
+        * {
+            box-sizing: border-box; /* Prevents padding from causing horizontal overflow */
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #1a252c;
+            background-color: #e0f7fa; /* Oceanic background */
+            padding: 1rem;
+            overflow-x: hidden; /* Guarantees no horizontal scrolling */
+        }
+
+        /* 2. Header & Navigation (Flexbox Layout) */
+        header {
+            background-color: #00838f;
+            color: #ffffff;
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column; /* Mobile Default (320px): Stacked vertical nav */
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        header nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.6rem 1rem;
+            background-color: #005662;
+            border-radius: 6px;
+            display: block;
+            text-align: center;
+        }
+
+        /* 3. Main Content Container */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        section {
+            background-color: #ffffff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+        }
+
+        section h2 {
+            color: #006064;
+            border-bottom: 2px solid #80deea;
+            padding-bottom: 0.4rem;
+            margin-bottom: 1rem;
+        }
+
+        /* 4. Multi-Column Section (CSS Grid for Character Cards) */
+        .friends-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* Mobile Default (320px): Single-column vertical stack */
+            gap: 1.25rem;
+        }
+
+        article {
+            background-color: #fffde7;
+            border: 2px solid #fbc02d;
+            border-radius: 8px;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        article h3 {
+            color: #f57f17;
+        }
+
+        article img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        /* Responsive ordered list styling */
+        ol {
+            margin-left: 1.25rem;
+            margin-top: 0.5rem;
+        }
+
+        ol li {
+            margin-bottom: 0.25rem;
+        }
+
+        footer {
+            max-width: 1200px;
+            margin: 1.5rem auto 0 auto;
+            text-align: center;
+            padding: 1rem;
+            background-color: #006064;
+            color: #ffffff;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        /* ===================================================
+           5. MEDIA QUERIES (Responsive Viewport Breakpoints)
+           =================================================== */
+
+        /* TABLET VIEWPORT (768px and up) */
+        @media (min-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            /* Shift nav items to horizontal flex row */
+            header nav ul {
+                flex-direction: row;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            /* Shift Friends section into a 2-column Grid */
+            .friends-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* DESKTOP VIEWPORT (1200px and up) */
+        @media (min-width: 1200px) {
+            body {
+                padding: 2rem;
+            }
+
+            /* Shift Friends section into a 3-column Grid for Patrick, Squidward, & Sandy */
+            .friends-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            /* Multi-column layout pairing About and Krusty Krab sections side by side */
+            .desktop-split {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>SpongeBob SquarePants: Life in Bikini Bottom</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About SpongeBob</a></li>
+                <li><a href="#friends">Friends & Neighbors</a></li>
+                <li><a href="#krusty-krab">The Krusty Krab</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Desktop Split Container for Side-by-Side Layout on Large Screens -->
+        <div class="desktop-split">
+            <section id="about">
+                <h2>About SpongeBob</h2>
+                <p>SpongeBob SquarePants is an endlessly optimistic sea sponge who resides in a pineapple under the sea at 124 Conch Street. He spends his days cooking Krabby Patties at the Krusty Krab, practicing karate, and catching jellyfish in Jellyfish Fields.</p>
+            </section>
+
+            <section id="krusty-krab">
+                <h2>The Krusty Krab</h2>
+                <p>Owned by Eugene H. Krabs, the Krusty Krab is Bikini Bottom's premier eatery, famous for its legendary sandwich.</p>
+                
+                <h3>Krabby Patty Essentials</h3>
+                <ol>
+                    <li>Sesame seed buns</li>
+                    <li>Fresh sea lettuce and tomatoes</li>
+                    <li>Sea cheese and pickles</li>
+                    <li>Flame-broiled patty</li>
+                    <li>Secret Krabby Patty Sauce</li>
+                </ol>
+            </section>
+        </div>
+
+        <!-- Multi-Column Grid Section -->
+        <section id="friends">
+            <h2>Friends & Neighbors</h2>
+            
+            <div class="friends-grid">
+                <article>
+                    <h3>Patrick Star</h3>
+                    <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5" alt="Yellow sea sponge alongside a star-shaped creature in an underwater coral reef setting">
+                    <p>SpongeBob's best friend is a well-meaning pink starfish who lives under a rock and enjoys jellyfishing and sleeping.</p>
+                </article>
+
+                <article>
+                    <h3>Squidward Tentacles</h3>
+                    <img src="[suspicious link removed]" alt="Underwater view of an octopus swimming near aquatic plants">
+                    <p>SpongeBob's next-door neighbor and cashier coworker at the Krusty Krab, who plays the clarinet and longs for artistic fame.</p>
+                </article>
+
+                <article>
+                    <h3>Sandy Cheeks</h3>
+                    <img src="[suspicious link removed]" alt="A squirrel resting outdoors on a tree branch">
+                    <p>A thrill-seeking, karate-chopping squirrel from Texas who lives in an airtight glass Treedome under the sea and works as a scientist.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Bikini Bottom Fan Club. Built using modern HTML5 &amp; CSS Grid standards.</p>
+    </footer>
+
+</body>
+</html>
